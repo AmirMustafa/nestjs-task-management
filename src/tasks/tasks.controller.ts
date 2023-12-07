@@ -4,15 +4,15 @@ import { Task } from './task.model';
 
 @Controller('tasks')
 export class TasksController {
-    constructor(private taskService: TasksService) {}
+  constructor(private taskService: TasksService) {}
 
-    @Get()
-    getAllTasks(): Task[] {
-        return this.taskService.getAllTasks();
-    }
+  @Get()
+  getAllTasks(): Task[] {
+    return this.taskService.getAllTasks();
+  }
 
-    @Post()
-    createTask(@Body() body) {
-        console.log("body ===> ", {body});
-    }
+  @Post()
+  createTask(@Body('title') title, @Body('description') description) {
+    console.log('body ===> ', { title, description });
+  }
 }
