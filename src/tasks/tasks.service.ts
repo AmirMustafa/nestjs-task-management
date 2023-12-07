@@ -17,6 +17,7 @@ export class TasksService {
             description,
             status: TaskStatus.OPEN
         }
-
+        this.tasks.push(task);
+        return task;    
     }
 }
