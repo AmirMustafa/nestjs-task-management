@@ -14,6 +14,13 @@ export class TasksService {
         return this.tasks.find(task => task.id === id);
     }
 
+    deleteTaskById(id: string): void {
+        let indexToDelete = this.tasks.findIndex(task => task.id === id);
+        if(indexToDelete !== -1) {
+            this.tasks.splice(indexToDelete, 1);
+        }
+    }
+
     createTask(createTaskDto) {
         const { title, description } = createTaskDto;
         const task: Task = {
