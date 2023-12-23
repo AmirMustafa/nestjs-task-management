@@ -42,15 +42,6 @@ export class TasksService {
         return found;
     }
 
-    // getTaskById(id: string): Task {
-    //     const found = this.tasks.find(task => task.id === id);
-
-    //     if(!found) {
-    //         throw new NotFoundException(`Task with "${id}" does not exist!`);
-    //     }
-    //     return found;
-    // }
-
     // deleteTaskById(id: string): void {
     //     const found = this.getTaskById(id);
     //     let indexToDelete = this.tasks.findIndex(task => task.id === found.id);
