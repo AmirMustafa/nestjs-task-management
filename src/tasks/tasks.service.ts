@@ -35,10 +35,11 @@ export class TasksService {
     return tasks;
   }
 
-  async getTaskById(id: any): Promise<Task> {
+  async getTaskById(id: any, user: User): Promise<Task> {
     const found = await this.taskRepository.findOne({
       where: {
         id,
+        user
       },
     });
 
@@ -69,8 +70,8 @@ export class TasksService {
     return res;
   }
 
-  async updateTaskStatus(id: string, status: TaskStatus): Promise<Task> {
-    const task = await this.getTaskById(id);
+  async updateTaskStatus(id: string, status: TaskStatus, user: User): Promise<Task> {
+    const task = await this.getTaskById(id, user);
     task.status = status;
 
     this.taskRepository.save(task);
