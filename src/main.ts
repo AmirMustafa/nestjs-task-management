@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { TransformInterceptor } from './transform.interceptor';
-import { Logger } from '@nestjs/common';
+
 
 async function bootstrap() {
   const logger = new Logger();
@@ -11,7 +11,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new TransformInterceptor());
   const port = 3000;
   await app.listen(port);
-
-  logger.log(`Application running on port ${port}`);
+  
+  logger.log(`Nest application is running in port ${port}`);
 }
 bootstrap();
