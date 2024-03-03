@@ -13,5 +13,9 @@ async function bootstrap() {
   await app.listen(port);
   
   logger.info(`Nest application is running in port ${port}`);
+  logger.warn(`Nest application is running in port ${port}`);
+  logger.error(`Nest application is running in port ${port}`);
+  logger.debug(`Nest application is running in port ${port}`);
+  logger.silly(`Nest application is running in port ${port}`);
 }
 bootstrap();
