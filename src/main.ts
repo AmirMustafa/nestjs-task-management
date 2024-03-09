@@ -1,17 +1,21 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { Logger, ValidationPipe } from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 import { TransformInterceptor } from './transform.interceptor';
+import logger from './logger';
 
 
 async function bootstrap() {
-  const logger = new Logger();
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new TransformInterceptor());
   const port = 3000;
   await app.listen(port);
   
-  logger.log(`Nest application is running in port ${port}`);
+  logger.info(`Nest application is running in port ${port}`);
+  logger.warn(`Nest application is running in port ${port}`);
+  logger.error(`Nest application is running in port ${port}`);
+  logger.debug(`Nest application is running in port ${port}`);
+  logger.silly(`Nest application is running in port ${port}`);
 }
 bootstrap();
